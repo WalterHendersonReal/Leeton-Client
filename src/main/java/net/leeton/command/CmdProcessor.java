@@ -63,7 +63,7 @@ public final class CmdProcessor implements ChatOutputListener
 		return cmd;
 	}
 
-	private Command runCmd(Command cmd, String input)
+	private void runCmd(Command cmd, String input)
 	{
 		String[] args = input.split(" ");
 		args = Arrays.copyOfRange(args, 1, args.length);
@@ -78,7 +78,7 @@ public final class CmdProcessor implements ChatOutputListener
 			
 		}catch(Throwable e)
 		{
-			CrashReport report = CrashReport.create(e, "Running a Leeton Command...");
+			CrashReport report = CrashReport.create(e, "Running Wurst command");
 			CrashReportSection section = report.addElement("Affected command");
 			section.add("Command input", () -> input);
 			throw new CrashException(report);

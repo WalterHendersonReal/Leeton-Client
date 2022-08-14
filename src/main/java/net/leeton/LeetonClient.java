@@ -5,6 +5,7 @@ import net.minecraft.client.MinecraftClient;
 import net.leeton.event.EventManager;
 import net.leeton.command.CmdProcessor;
 import net.leeton.events.ChatOutputListener;
+import net.leeton.command.CmdList;
 
 public enum LeetonClient 
 {
@@ -20,14 +21,16 @@ public enum LeetonClient
 
     private EventManager eventManager;
     private CmdProcessor cmdProcessor;
+    private CmdList cmds;
 
     public void initialize() 
     {
-        
+        cmds = new CmdList();
+
         eventManager = new EventManager(this);
         System.out.println("Initiated Event Manager");
         
-        cmdProcessor = new CmdProcessor();
+        cmdProcessor = new CmdProcessor(cmds);
         eventManager.add(ChatOutputListener.class,cmdProcessor);
         System.out.println("Initiated Command Processor!");
     }
