@@ -19,11 +19,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.leeton.InitializeLeeton"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "leeton.mixins.json"
   ],
 
   "depends": {
